@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FilmesAPI.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace FilmesAPI.Data.Dtos
 {
@@ -9,5 +10,6 @@ namespace FilmesAPI.Data.Dtos
         public int Id { get; set; }
         [Required(ErrorMessage = "O campo nome é obrigatório")]
         public string Nome { get; set; }        
+        public List<Cinema> Cinemas { get; set; }
     }
 }

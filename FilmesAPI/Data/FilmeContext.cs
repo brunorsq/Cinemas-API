@@ -18,6 +18,10 @@ namespace FilmesAPI.Data
                 .WithOne(cinema => cinema.Endereco)
                 .HasForeignKey<Cinema>(cinema => cinema.EnderecoId);
 
+            modelBuilder.Entity<Cinema>()
+                .HasOne(cinema => cinema.Gerente)
+                .WithMany(gerente => gerente.Cinemas)
+                .HasForeignKey(cinema => cinema.GerenteId);
         }
 
         public DbSet<Filme> Filmes { get; set; }
