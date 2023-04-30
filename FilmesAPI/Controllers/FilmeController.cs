@@ -44,6 +44,7 @@ namespace FilmesAPI.Controllers
             if (filme != null)
             {
                 ReadFilmeDto filmeDto = _mapper.Map<ReadFilmeDto>(filme);
+
                 return Ok(filme);
             }
             return NotFound();
@@ -58,10 +59,7 @@ namespace FilmesAPI.Controllers
                 return NotFound();
             }
 
-            filme.Titulo = filmeDto.Titulo;
-            filme.Genero = filmeDto.Genero;
-            filme.Duracao = filmeDto.Duracao;
-            filme.Diretor = filmeDto.Diretor;
+            _mapper.Map(filmeDto, filme);
             _context.SaveChanges();
             
             return NoContent();
