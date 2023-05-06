@@ -12,8 +12,7 @@ namespace FilmesAPI.Profiles
             CreateMap<Gerente, ReadGerenteDto>()
                 .ForMember(gerente => gerente.Cinemas, opts => opts
                 .MapFrom(gerente => gerente.Cinemas.Select
-                (c => new { c.Id, c.Nome, c.Endereco, c.EnderecoId })))
-                ;
+                (c => new { c.Id, c.Nome, c.Endereco, c.EnderecoId })));
             CreateMap<UpdateGerenteDto, Gerente>();
         }
     }
