@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace FilmesAPI.Models
 {
@@ -20,6 +21,7 @@ namespace FilmesAPI.Models
         [Range(1, 600, ErrorMessage = "A duração deve ser entre 1 e 600 minutos")]
         public int Duracao { get; set; }
 
+        [JsonIgnore]
         public virtual List<Sessao> Sessoes { get; set; }
         
     }
